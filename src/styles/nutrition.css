@@ -1,0 +1,170 @@
+/* src/styles/nutrition.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.nutrition-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: #FF4C29; /* gym-accent color */
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+/* Nutrition Categories */
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.category-card {
+  background: linear-gradient(135deg, #FF4C29, #FF7F50);
+  color: #fff;
+  padding: 20px;
+  width: 220px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+}
+
+/* Calculators & AI Tools */
+.calculator-card {
+  background-color: #1E1E1E;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 50px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.4);
+  transition: transform 0.2s;
+}
+
+.calculator-card h2 {
+  color: #FF4C29;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.calculator-grid .full-width {
+  grid-column: span 2;
+}
+
+.calculator-card input,
+.calculator-card select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #2C2C2C;
+  color: #fff;
+}
+
+.calculator-card button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #FF4C29;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.calculator-card button:hover {
+  background-color: #FF7F50;
+}
+
+.result {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+/* Chatbot */
+.chatbot {
+  border: 1px solid #444;
+  height: 220px;
+  overflow-y: auto;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #2C2C2C;
+}
+
+.chat-message {
+  margin-bottom: 12px;
+}
+
+.chat-message .user {
+  font-weight: bold;
+  color: #FF7F50;
+}
+
+.chat-message .bot {
+  color: #ccc;
+}
+
+.chat-input {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2C2C2C;
+  color: #fff;
+}
+
+.food-analyzer {
+  text-align: center;
+  border: 1px solid #444;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #1E1E1E;
+}
+
+.food-analyzer button {
+  margin-top: 12px;
+  padding: 10px 15px;
+  background-color: #FF4C29;
+  border: none;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.food-analyzer button:hover {
+  background-color: #FF7F50;
+}

@@ -1,0 +1,160 @@
+.programs-page {
+  background: #0f0f0f;
+  color: white;
+  padding-bottom: 80px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(to bottom, #111, #0f0f0f);
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 800;
+}
+
+.hero span {
+  color: #ff6a00;
+}
+
+.hero p {
+  margin-top: 15px;
+  color: #aaa;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.stats h3 {
+  color: #ff6a00;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 80px;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+.filter-group button {
+  margin-left: 10px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid #333;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.filter-group .active {
+  background: #ff6a00;
+  border: none;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  padding: 60px 80px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border: 1px solid #ff6a00;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+.popular {
+  background: #ff6a00;
+}
+
+.premium {
+  background: gold;
+  color: black;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.level {
+  color: #ff6a00;
+  margin: 10px 0;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.view-btn {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background: #ff6a00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* PRICING */
+.pricing {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.pricing h2 span {
+  color: #ff6a00;
+}
+
+table {
+  width: 70%;
+  margin: 40px auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  border: 1px solid #333;
+}
+
+.upgrade-btn {
+  padding: 14px 30px;
+  background: #ff6a00;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
