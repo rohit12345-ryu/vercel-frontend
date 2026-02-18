@@ -1,6 +1,6 @@
 import AITrainer from "./pages/Aitrainer";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
 
 import Home from "./pages/Home";
