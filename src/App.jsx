@@ -1,6 +1,4 @@
-import AITrainer from "./pages/Aitrainer";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
 
 import Home from "./pages/Home";
@@ -15,6 +13,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderHistory from "./pages/OrderHistory";
+import AiTrainer from "./pages/Aitrainer";
 
 
 
@@ -27,7 +26,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      
 
       <Toaster position="top-right" />
 
@@ -51,7 +50,7 @@ function App() {
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/orders" element={<OrderHistory />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/ai-trainer" element={<AITrainer />} />
+          <Route path="/ai-trainer" element={<AiTrainer />} />
         </Route>
       </Routes>
     </>
