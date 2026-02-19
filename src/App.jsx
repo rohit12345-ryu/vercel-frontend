@@ -1,4 +1,6 @@
+import AITrainer from "./pages/Aitrainer";
 import { Routes, Route, Navigate } from "react-router-dom";
+import Navbar from "../src/components/navbar";
 import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
 
 import Home from "./pages/Home";
@@ -7,13 +9,11 @@ import Nutrition from "./pages/Nutrition";
 import Store from "./pages/Store";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Contact from "./pages/Contact";
-import Membership from "./pages/Membership";
+import MembershipContact from "./pages/MembershipContact";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderHistory from "./pages/OrderHistory";
-import AiTrainer from "./pages/Aitrainer";
 
 
 
@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      
+      <Navbar />
 
       <Toaster position="top-right" />
 
@@ -36,9 +36,9 @@ function App() {
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
 
-        {/* Contact & membership */}
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/membership" element={<Membership />} />
+        {/* Contact & Membership - Merged Page */}
+        <Route path="/membership" element={<MembershipContact />} />
+        <Route path="/contact" element={<MembershipContact />} />
 
         {/* Protected app pages */}
         <Route element={<ProtectedRoute />}>
@@ -50,7 +50,7 @@ function App() {
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/orders" element={<OrderHistory />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/ai-trainer" element={<AiTrainer />} />
+          <Route path="/ai-trainer" element={<AITrainer />} />
         </Route>
       </Routes>
     </>

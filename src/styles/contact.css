@@ -1,60 +1,399 @@
-.contact-page {
-  max-width: 720px;
+/* Base Page Styles */
+.membership-contact-page {
+  max-width: 1100px;
   margin: 40px auto;
   padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.contact-grid {
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-header h2 {
+  font-size: 2.2rem;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  border-color: #0b72ff;
+  color: #0b72ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 114, 255, 0.15);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #0b72ff 0%, #0066e6 100%);
+  border-color: #0b72ff;
+  color: white;
+  box-shadow: 0 4px 15px rgba(11, 114, 255, 0.35);
+}
+
+.tab-icon {
+  font-size: 1.2rem;
+}
+
+/* Content Grid */
+.content-grid {
   display: grid;
   grid-template-columns: 1fr 320px;
-  gap: 24px;
+  gap: 30px;
   align-items: start;
 }
 
-.form-column .contact-form,
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Form Card */
+.form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.4s ease;
 }
-.contact-form input,
-.contact-form textarea,
-.contact-form select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.contact-form button {
-  padding: 10px 14px;
-  background: #0b72ff;
-  color: white;
-  border: none;
-  border-radius: 6px;
+
+.form-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.form-header h3 {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+}
+
+.form-header p {
+  color: #777;
+  margin: 0;
+}
+
+/* Form Styles */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e5e5e5;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0b72ff;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(11, 114, 255, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Plan Options */
+.plan-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.plan-option {
+  position: relative;
   cursor: pointer;
 }
-.contact-form button:disabled {
+
+.plan-option input {
+  position: absolute;
+  opacity: 0;
+}
+
+.plan-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 10px;
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.plan-option:hover .plan-content {
+  border-color: #0b72ff;
+  transform: translateY(-3px);
+}
+
+.plan-option.selected .plan-content {
+  border-color: #0b72ff;
+  background: linear-gradient(135deg, rgba(11, 114, 255, 0.1) 0%, rgba(11, 114, 255, 0.05) 100%);
+  box-shadow: 0 4px 15px rgba(11, 114, 255, 0.2);
+}
+
+.plan-name {
+  font-weight: 700;
+  color: #1a1a2e;
+  font-size: 1rem;
+}
+
+.plan-price {
+  color: #0b72ff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.plan-desc {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn.primary {
+  background: linear-gradient(135deg, #0b72ff 0%, #0066e6 100%);
+  color: white;
+}
+
+.submit-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 114, 255, 0.35);
+}
+
+.submit-btn.primary:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+  transform: none;
 }
 
-.contact-info {
-  background: #fafafa;
-  border: 1px solid #eee;
-  padding: 16px;
-  border-radius: 8px;
+/* Sidebar */
+.info-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.contact-info h3 {
-  margin-top: 0;
+.info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.map-placeholder {
-  margin-top: 12px;
-  height: 160px;
-  background: linear-gradient(90deg,#eee,#f7f7f7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#888;
-  border-radius:6px;
+.info-card h3 {
+  font-size: 1.2rem;
+  color: #1a1a2e;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.info-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icon {
+  font-size: 1.3rem;
+  margin-top: 2px;
+}
+
+.info-item strong {
+  display: block;
+  color: #1a1a2e;
+  font-size: 0.9rem;
+  margin-bottom: 3px;
+}
+
+.info-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Benefits Card */
+.benefits-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 100%);
+}
+
+.benefits-card h3 {
+  color: white;
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.benefits-list li:last-child {
+  border-bottom: none;
+}
+
+/* CTA Card */
+.cta-card {
+  background: linear-gradient(135deg, #0b72ff 0%, #0066e6 100%);
+  text-align: center;
+}
+
+.cta-card h3 {
+  color: white;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 10px;
+}
+
+.cta-card p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 10px 0;
+}
+
+.phone-link {
+  display: inline-block;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-sidebar {
+    order: -1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .tab-navigation {
+    flex-wrap: wrap;
+  }
+  
+  .tab-btn {
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .plan-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-sidebar {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-header h2 {
+    font-size: 1.8rem;
+  }
 }
