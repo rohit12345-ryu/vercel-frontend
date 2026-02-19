@@ -1,5 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+
+
 import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
+import Navbar from "../src/components/navbar";
 
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
@@ -7,8 +10,7 @@ import Nutrition from "./pages/Nutrition";
 import Store from "./pages/Store";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Contact from "./pages/Contact";
-import Membership from "./pages/Membership";
+import MembershipContact from "./pages/MembershipContact";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
@@ -36,9 +38,9 @@ function App() {
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
 
-        {/* Contact & membership */}
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/membership" element={<Membership />} />
+        {/* Contact & Membership - Merged Page */}
+        <Route path="/membership" element={<MembershipContact />} />
+        <Route path="/contact" element={<MembershipContact />} />
 
         {/* Protected app pages */}
         <Route element={<ProtectedRoute />}>
