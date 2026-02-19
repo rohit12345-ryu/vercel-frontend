@@ -2,7 +2,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 
 import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
-import Navbar from "../src/components/navbar";
+
+import Navbar from "../components/Navbar";
 
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
