@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./Checkout.css";
 
 export default function Checkout() {
   const [cart, setCart] = useState([]);
@@ -23,27 +24,42 @@ export default function Checkout() {
   };
 
   return (
-    <div style={{ maxWidth: 1100, margin: "40px auto", padding: 20, display: "grid", gridTemplateColumns: "2fr 1fr", gap: 30 }}>
-      <div style={{ border: "1px solid #e5e7eb", borderRadius: 10, padding: 25, background: "#fff" }}>
-        <h2 style={{ marginBottom: 20 }}>Delivery Details</h2>
-        {["name", "phone", "address", "city", "pincode"].map((field) => (
-          <input key={field} name={field} placeholder={field.charAt(0).toUpperCase() + field.slice(1)} value={form[field]} onChange={handleChange} style={{ width: "100%", padding: 12, marginBottom: 15, borderRadius: 6, border: "1px solid #d1d5db" }} />
+    <div className="checkout-page">
+      <div className="checkout-panel">
+        <h2>Delivery Details</h2>
+        {[
+          "name",
+          "phone",
+          "address",
+          "city",
+          "pincode",
+        ].map((field) => (
+          <input
+            key={field}
+            name={field}
+            placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+            value={form[field]}
+            onChange={handleChange}
+            className="checkout-input"
+          />
         ))}
       </div>
 
-      <div style={{ border: "1px solid #e5e7eb", borderRadius: 10, padding: 25, background: "#f9fafb" }}>
-        <h2 style={{ marginBottom: 15 }}>Order Summary</h2>
-        {cart.length === 0 ? <p>Your cart is empty</p> : (
+      <div className="checkout-panel">
+        <h2>Order Summary</h2>
+        {cart.length === 0 ? (
+          <p>Your cart is empty</p>
+        ) : (
           <>
             {cart.map((item) => (
-              <div key={item.id} style={{ display: "flex", justifyContent: "space-between", marginBottom: 10, fontSize: 14 }}>
-                <span>{item.name} × {item.qty}</span>
-                <span>₹{item.price * item.qty}</span>
+              <div key={item.id} className="summary-row">
+                <span>{item.name} x {item.qty}</span>
+                <span>Rs {item.price * item.qty}</span>
               </div>
             ))}
-            <hr style={{ margin: "15px 0" }} />
-            <h3>Total: ₹{total}</h3>
-            <button onClick={placeOrder} style={{ width: "100%", marginTop: 20, padding: 14, background: "#16a34a", color: "#fff", border: "none", borderRadius: 8, fontSize: 16, cursor: "pointer" }}>Place Order</button>
+            <hr style={{ margin: "12px 0" }} />
+            <h3>Total: Rs {total}</h3>
+            <button onClick={placeOrder} className="place-order-btn">Place Order</button>
           </>
         )}
       </div>

@@ -1,0 +1,69 @@
+.order-success-page {
+  width: min(900px, calc(100vw - 32px));
+  margin: 18px auto 48px;
+}
+
+.order-success-card {
+  border-radius: 16px;
+  border: 1px solid rgba(21, 24, 32, 0.12);
+  background: #fff;
+  padding: 20px;
+}
+
+.success-title {
+  margin: 0;
+  color: #1f8d45;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.success-sub {
+  margin: 8px 0 18px;
+  color: var(--ink-500);
+}
+
+.success-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.92rem;
+  margin-bottom: 7px;
+}
+
+.success-total {
+  margin: 10px 0 0;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 1.9rem;
+}
+
+.delivery-box {
+  margin-top: 14px;
+  font-size: 0.94rem;
+}
+
+.success-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.success-actions button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.success-primary {
+  background: #11141b;
+  color: #fff;
+}
+
+.success-secondary {
+  background: #eceef3;
+  color: #1a1d25;
+}

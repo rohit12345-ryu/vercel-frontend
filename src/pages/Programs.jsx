@@ -59,7 +59,6 @@ const programs = [
 function Programs() {
   return (
     <div className="programs-page">
-      {/* HERO */}
       <div className="hero">
         <h1>
           TRAINING <span>PROGRAMS</span>
@@ -88,7 +87,6 @@ function Programs() {
         </div>
       </div>
 
-      {/* FILTERS */}
       <div className="filters">
         <div className="filter-group">
           <span>Difficulty:</span>
@@ -109,7 +107,6 @@ function Programs() {
         </div>
       </div>
 
-      {/* PROGRAM CARDS */}
       <div className="cards">
         {programs.map((program, index) => (
           <div key={index} className="card">
@@ -118,7 +115,7 @@ function Programs() {
 
             <div className="card-header">
               <h2>{program.title}</h2>
-              <span className="rating">⭐ {program.rating}</span>
+              <span className="rating">Rating {program.rating}</span>
             </div>
 
             <p className="level">{program.level}</p>
@@ -143,7 +140,6 @@ function Programs() {
         ))}
       </div>
 
-      {/* FREE VS PREMIUM */}
       <div className="pricing">
         <h2>
           FREE VS <span>PREMIUM</span>
@@ -160,28 +156,28 @@ function Programs() {
           <tbody>
             <tr>
               <td>Personalized Schedule</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td>Yes</td>
+              <td>Yes</td>
             </tr>
             <tr>
               <td>Weekly Workout Plans</td>
-              <td>✔</td>
-              <td>✔</td>
+              <td>Yes</td>
+              <td>Yes</td>
             </tr>
             <tr>
               <td>Video Exercise Library</td>
-              <td>✖</td>
-              <td>✔</td>
+              <td>No</td>
+              <td>Yes</td>
             </tr>
             <tr>
               <td>1-on-1 Coach Check-ins</td>
-              <td>✖</td>
-              <td>✔</td>
+              <td>No</td>
+              <td>Yes</td>
             </tr>
             <tr>
               <td>Nutrition Meal Plans</td>
-              <td>✖</td>
-              <td>✔</td>
+              <td>No</td>
+              <td>Yes</td>
             </tr>
           </tbody>
         </table>

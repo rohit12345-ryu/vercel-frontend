@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../api/axios";
+import "./Login.css";
 
 function Register() {
   const navigate = useNavigate();
@@ -12,27 +13,25 @@ function Register() {
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (password !== confirmPassword) return setError("Passwords do not match");
+    e.preventDefault();
+    if (password !== confirmPassword) return setError("Passwords do not match");
 
-  try {
-    const res = await api.post("/api/auth/register", { name, email, password });
-    console.log(res.data); // check backend response
-    navigate("/login");
-  } catch (err) {
-    console.log(err.response); // shows backend error
-    setError(err.response?.data?.message || "Registration failed");
-  }
-};
-
-
+    try {
+      const res = await api.post("/api/auth/register", { name, email, password });
+      console.log(res.data);
+      navigate("/login");
+    } catch (err) {
+      console.log(err.response);
+      setError(err.response?.data?.message || "Registration failed");
+    }
+  };
 
   return (
     <div className="login-page">
       <form className="login-box" onSubmit={handleSubmit}>
         <h2>Register to GYM AI</h2>
 
-        {error && <p style={{ color: "red" }}>{error}</p>}
+        {error && <p className="login-note" style={{ color: "#ff9aa3" }}>{error}</p>}
 
         <input
           type="text"
@@ -68,11 +67,8 @@ function Register() {
 
         <button type="submit">Register</button>
 
-        <p style={{ marginTop: "15px", textAlign: "center" }}>
-          Already have an account?{" "}
-          <Link to="/login" style={{ color: "#ff0000" }}>
-            Login
-          </Link>
+        <p className="login-note">
+          Already have an account? <Link to="/login" style={{ color: "#ffbcc2" }}>Login</Link>
         </p>
       </form>
     </div>

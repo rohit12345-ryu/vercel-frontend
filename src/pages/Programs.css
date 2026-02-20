@@ -1,160 +1,233 @@
 .programs-page {
-  background: #0f0f0f;
-  color: white;
-  padding-bottom: 80px;
+  width: min(1240px, calc(100vw - 32px));
+  margin: 18px auto 56px;
+  padding: 24px;
+  background: linear-gradient(160deg, #14161d 0%, #1a1d25 55%, #0f1218 100%);
+  color: #eef0f4;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 42px rgba(0, 0, 0, 0.25);
 }
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(to bottom, #111, #0f0f0f);
+.programs-page .hero {
+  text-align: left;
+  padding: 26px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.05), rgba(196, 32, 45, 0.16));
 }
 
-.hero h1 {
-  font-size: 60px;
-  font-weight: 800;
+.programs-page .hero h1 {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.3rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
 }
 
-.hero span {
-  color: #ff6a00;
+.programs-page .hero span {
+  color: #ff6a75;
 }
 
-.hero p {
-  margin-top: 15px;
-  color: #aaa;
+.programs-page .hero p {
+  margin-top: 14px;
+  max-width: 620px;
+  color: #ced3db;
 }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 40px;
-}
-
-.stats h3 {
-  color: #ff6a00;
-}
-
-/* FILTERS */
-.filters {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 80px;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
-
-.filter-group button {
-  margin-left: 10px;
-  padding: 8px 18px;
-  background: transparent;
-  border: 1px solid #333;
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.filter-group .active {
-  background: #ff6a00;
-  border: none;
-}
-
-/* CARDS */
-.cards {
+.programs-page .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 30px;
-  padding: 60px 80px;
-}
-
-.card {
-  background: #1a1a1a;
-  padding: 30px;
-  border-radius: 12px;
-  position: relative;
-  transition: 0.3s;
-}
-
-.card:hover {
-  border: 1px solid #ff6a00;
-}
-
-.badge {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 5px 12px;
-  font-size: 12px;
-  border-radius: 20px;
-}
-
-.popular {
-  background: #ff6a00;
-}
-
-.premium {
-  background: gold;
-  color: black;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.level {
-  color: #ff6a00;
-  margin: 10px 0;
-}
-
-.card-info {
-  display: flex;
-  justify-content: space-between;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 14px;
   margin-top: 20px;
-  background: #222;
-  padding: 15px;
-  border-radius: 8px;
 }
 
-.view-btn {
-  margin-top: 25px;
-  width: 100%;
+.programs-page .stats div {
+  background: rgba(15, 18, 24, 0.6);
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
   padding: 12px;
-  background: #ff6a00;
-  border: none;
-  border-radius: 8px;
+}
+
+.programs-page .stats h3 {
+  margin: 0;
+  color: #ff6a75;
+}
+
+.programs-page .stats p {
+  margin: 6px 0 0;
+  font-size: 0.86rem;
+}
+
+.programs-page .filters {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.programs-page .filter-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.programs-page .filter-group span {
+  width: 90px;
+  color: #bdc3cf;
+}
+
+.programs-page .filter-group button {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.03);
+  color: #eef0f4;
+  border-radius: 999px;
+  padding: 7px 14px;
   cursor: pointer;
-  font-weight: bold;
 }
 
-/* PRICING */
-.pricing {
+.programs-page .filter-group .active {
+  background: #c4202d;
+  border-color: #c4202d;
+}
+
+.programs-page .cards {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.programs-page .card {
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.programs-page .badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.programs-page .popular {
+  background: #c4202d;
+}
+
+.programs-page .premium {
+  background: #e8dba6;
+  color: #2c2a1f;
+}
+
+.programs-page .card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.programs-page .card-header h2 {
+  margin: 0;
+  font-size: 1.18rem;
+}
+
+.programs-page .rating {
+  color: #ffb8be;
+  font-weight: 700;
+}
+
+.programs-page .level {
+  margin: 0;
+  color: #ff7d88;
+  font-weight: 600;
+}
+
+.programs-page .card-info {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.programs-page .card-info div {
+  background: rgba(10, 12, 16, 0.66);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.programs-page .card-info p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #aeb4bf;
+}
+
+.programs-page .card-info h4 {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+}
+
+.programs-page .view-btn,
+.programs-page .upgrade-btn {
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #c4202d;
+  color: #fff;
+}
+
+.programs-page .pricing {
+  margin-top: 28px;
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.programs-page .pricing h2 {
+  margin: 0;
   text-align: center;
-  padding: 80px 20px;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.06em;
+  font-size: 2.2rem;
 }
 
-.pricing h2 span {
-  color: #ff6a00;
-}
-
-table {
-  width: 70%;
-  margin: 40px auto;
+.programs-page table {
+  width: 100%;
+  margin-top: 14px;
   border-collapse: collapse;
 }
 
-th,
-td {
-  padding: 15px;
-  border: 1px solid #333;
+.programs-page th,
+.programs-page td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  text-align: left;
 }
 
-.upgrade-btn {
-  padding: 14px 30px;
-  background: #ff6a00;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+.programs-page th {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 900px) {
+  .programs-page {
+    padding: 16px;
+  }
+
+  .programs-page .stats {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
 }

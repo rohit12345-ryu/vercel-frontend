@@ -4,18 +4,18 @@ import {
   drawConnectors,
   drawLandmarks,
 } from "@mediapipe/drawing_utils";
+import "./Aitrainer.css";
 
 export default function AITrainer() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const poseRef = useRef(null);
-  const exerciseRef = useRef("squat");   // ✅ NEW
+  const exerciseRef = useRef("squat");
 
   const [exercise, setExercise] = useState("squat");
   const [feedback, setFeedback] = useState("Upload a video to analyze.");
   const [angle, setAngle] = useState("--");
 
-  // ✅ Sync ref with state
   useEffect(() => {
     exerciseRef.current = exercise;
   }, [exercise]);
@@ -67,20 +67,18 @@ export default function AITrainer() {
 
       let calculatedAngle = 0;
 
-      // 🏋️ Squat
       if (exerciseRef.current === "squat") {
         calculatedAngle = getBestAngle(24, 26, 28, 23, 25, 27);
 
         if (calculatedAngle < 100) {
-          setFeedback("Great squat depth ✅");
+          setFeedback("Great squat depth.");
         } else if (calculatedAngle < 120) {
-          setFeedback("Almost there ⚠️ Go lower");
+          setFeedback("Almost there. Go lower.");
         } else {
-          setFeedback("Go lower ❌");
+          setFeedback("Go lower.");
         }
       }
 
-      // 💪 Push-up
       if (exerciseRef.current === "pushup") {
         const rightVisibility =
           lm[12].visibility + lm[14].visibility + lm[16].visibility;
@@ -96,15 +94,14 @@ export default function AITrainer() {
         calculatedAngle = elbowAngle;
 
         if (calculatedAngle < 90) {
-          setFeedback("Perfect push-up depth ✅");
+          setFeedback("Perfect push-up depth.");
         } else if (calculatedAngle < 120) {
-          setFeedback("Almost there ⚠️ Go lower");
+          setFeedback("Almost there. Go lower.");
         } else {
-          setFeedback("Bend elbows more ❌");
+          setFeedback("Bend elbows more.");
         }
       }
 
-      // 🏋️ Deadlift
       if (exerciseRef.current === "deadlift") {
         const rightHipAngle = calculateAngle(lm[12], lm[24], lm[28]);
         const leftHipAngle = calculateAngle(lm[11], lm[23], lm[27]);
@@ -112,11 +109,11 @@ export default function AITrainer() {
         calculatedAngle = Math.max(rightHipAngle, leftHipAngle);
 
         if (calculatedAngle > 165) {
-          setFeedback("Stand tall at top ✅");
+          setFeedback("Stand tall at top.");
         } else if (calculatedAngle > 140) {
-          setFeedback("Good hip hinge position ✅");
+          setFeedback("Good hip hinge position.");
         } else {
-          setFeedback("Push hips back & keep chest up ⚠️");
+          setFeedback("Push hips back and keep chest up.");
         }
       }
 
@@ -142,7 +139,7 @@ export default function AITrainer() {
     };
 
     processFrame();
-  }, []);   // ✅ Keep empty
+  }, []);
 
   const handleVideoUpload = (e) => {
     const file = e.target.files[0];
@@ -152,55 +149,19 @@ export default function AITrainer() {
     video.src = URL.createObjectURL(file);
     video.load();
 
-    setFeedback("Video Loaded. Press Play.");
+    setFeedback("Video loaded. Press Play.");
     setAngle("--");
   };
 
   return (
-  <div
-    style={{
-      minHeight: "100vh",
-      background: "#0f172a",
-      color: "white",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      padding: "20px",
-      fontFamily: "Arial, sans-serif",
-    }}
-  >
-    <div
-      style={{
-        width: "900px",
-        background: "#1e293b",
-        borderRadius: "20px",
-        padding: "30px",
-        boxShadow: "0 10px 40px rgba(0,0,0,0.6)",
-      }}
-    >
-      <h1 style={{ textAlign: "center", marginBottom: "25px" }}>
-        🏋️ AI Fitness Trainer
-      </h1>
+    <div className="ai-trainer-page">
+      <h1 className="ai-trainer-title">AI Fitness Trainer</h1>
 
-      {/* Controls */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "20px",
-          gap: "15px",
-        }}
-      >
+      <div className="ai-controls">
         <select
           value={exercise}
           onChange={(e) => setExercise(e.target.value)}
-          style={{
-            flex: 1,
-            padding: "10px",
-            borderRadius: "10px",
-            border: "none",
-            fontSize: "16px",
-          }}
+          className="ai-control-input"
         >
           <option value="squat">Squat</option>
           <option value="pushup">Push-Up</option>
@@ -211,35 +172,15 @@ export default function AITrainer() {
           type="file"
           accept="video/mp4,video/webm"
           onChange={handleVideoUpload}
-          style={{
-            flex: 1,
-            background: "#334155",
-            color: "white",
-            padding: "10px",
-            borderRadius: "10px",
-            border: "none",
-          }}
+          className="ai-control-input"
         />
       </div>
 
-      {/* Video Section */}
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          borderRadius: "15px",
-          overflow: "hidden",
-          marginBottom: "25px",
-        }}
-      >
+      <div className="ai-video-wrap">
         <video
           ref={videoRef}
           controls
-          style={{
-            width: "100%",
-            display: "block",
-            borderRadius: "15px",
-          }}
+          className="ai-video"
           onLoadedMetadata={() => {
             const canvas = canvasRef.current;
             canvas.width = videoRef.current.videoWidth;
@@ -249,55 +190,21 @@ export default function AITrainer() {
 
         <canvas
           ref={canvasRef}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "none",
-          }}
+          className="ai-canvas"
         />
       </div>
 
-      {/* Stats Section */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          gap: "20px",
-        }}
-      >
-        <div
-          style={{
-            flex: 1,
-            background: "#334155",
-            padding: "20px",
-            borderRadius: "15px",
-            textAlign: "center",
-          }}
-        >
+      <div className="ai-stats">
+        <div className="ai-stat-box">
           <h3>Angle</h3>
-          <h1 style={{ fontSize: "40px", margin: "10px 0" }}>
-            {angle}°
-          </h1>
+          <h2 className="ai-angle">{angle} deg</h2>
         </div>
 
-        <div
-          style={{
-            flex: 2,
-            background: "#334155",
-            padding: "20px",
-            borderRadius: "15px",
-            textAlign: "center",
-          }}
-        >
+        <div className="ai-stat-box">
           <h3>Feedback</h3>
-          <h2 style={{ marginTop: "10px" }}>{feedback}</h2>
+          <h2 className="ai-feedback">{feedback}</h2>
         </div>
       </div>
     </div>
-  </div>
-);
-
+  );
 }

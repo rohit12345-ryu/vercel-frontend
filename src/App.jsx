@@ -1,7 +1,10 @@
-import AITrainer from "./pages/Aitrainer";
+import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
-import Navbar from "../src/components/Navbar"
+import { Toaster } from "react-hot-toast";
+import { useAuth } from "./context/AuthContext";
+
+import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
@@ -9,17 +12,13 @@ import Nutrition from "./pages/Nutrition";
 import Store from "./pages/Store";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import MembershipContact from  "./pages/MembershipContact"; 
+import MembershipContact from "./pages/MembershipContact";
 import Cart from "./pages/Cart";
-import Checkout from "../src/pages/checkout";
+import Checkout from "./pages/checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderHistory from "./pages/OrderHistory";
-
-
-
 import Dashboard from "./pages/Dashboard";
-import ProtectedRoute from "./components/ProtectedRoute";
-import { useAuth } from "./context/AuthContext";
+import AITrainer from "./pages/Aitrainer";
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -27,17 +26,14 @@ function App() {
   return (
     <>
       <Navbar />
-
       <Toaster position="top-right" />
 
       <Routes>
-        {/* Public pages */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
-
         <Route path="/membership-contact" element={<MembershipContact />} />
-        {/* Protected app pages */}
+
         <Route element={<ProtectedRoute />}>
           <Route path="/programs" element={<Programs />} />
           <Route path="/nutrition" element={<Nutrition />} />

@@ -1,81 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bg-soft: #efefef;
+  --bg-white: #ffffff;
+  --ink-900: #151820;
+  --ink-700: #2f3441;
+  --ink-500: #666c79;
+  --line: #d7d9df;
+  --red-600: #c4202d;
+  --red-700: #a21722;
+  --shadow-soft: 0 14px 40px rgba(21, 24, 32, 0.12);
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
-
-/* FEATURES SECTION */
-.features {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 60px 40px;
-  background-color: #f5f5f5;
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
 }
 
-.feature-card {
-  background: white;
-  padding: 25px;
-  width: 280px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+body {
+  background: radial-gradient(circle at 18% 10%, #f9f9f9 0%, var(--bg-soft) 48%, #e6e7eb 100%);
+  color: var(--ink-900);
+  font-family: "Outfit", sans-serif;
 }
 
-.feature-card h3 {
-  margin-bottom: 10px;
-  color: #111;
+a {
+  color: inherit;
 }
 
-.feature-card p {
-  font-size: 14px;
-  color: #555;
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: white;
+.page-shell {
+  width: min(1240px, calc(100vw - 32px));
+  margin: 0 auto;
 }
 
-.nav-links a:hover {
-  color: red;
-}
-
-.hero {
-  height: calc(100vh - 70px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  background: linear-gradient(135deg, #000, #1a1a1a);
-}
-
-.hero h1 {
-  font-size: 52px;
-  font-weight: bold;
-}
-
-.hero p {
-  font-size: 18px;
-  opacity: 0.85;
-  margin: 20px 0;
-  line-height: 1.5;
-}
-
-.hero button {
-  background: red;
-  color: white;
-  border: none;
-  padding: 14px 30px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.hero button:hover {
-  background: darkred;
+.surface-card {
+  background: var(--bg-white);
+  border: 1px solid rgba(21, 24, 32, 0.08);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
 }

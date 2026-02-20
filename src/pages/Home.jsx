@@ -5,21 +5,38 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="home-hero">
-      <div className="overlay" />
-      <div className="hero-content">
-        <h1>Train Smarter. Recover Faster. Stay Consistent.</h1>
-        <p>
-          Personalized workouts, nutrition plans, and supplements tailored to
-          your goals — powered by AI and expert guidance.
+    <section className="home-hero page-shell">
+      <div className="hero-spark hero-spark-left" aria-hidden="true" />
+      <div className="hero-spark hero-spark-right" aria-hidden="true" />
+
+      <div className="home-copy">
+        <p className="home-kicker">WELCOME TO GYM AI</p>
+        <h1>
+          THE MOST COMPLETE
+          <br />
+          GYM TO WORK OUT
+        </h1>
+        <p className="home-lead">
+          Build your best physique with data-driven programs, adaptive nutrition, and practical AI tools that
+          keep you consistent every week.
         </p>
 
         <div className="hero-ctas">
-          <button className="btn primary" onClick={() => navigate("/programs")}>Explore Programs</button>
-          <button className="btn" onClick={() => navigate("/store")}>Shop Supplements</button>
+          <button className="btn-main" onClick={() => navigate("/programs")}>Explore Programs</button>
+          <button className="btn-ghost" onClick={() => navigate("/store")}>Shop Supplements</button>
         </div>
       </div>
-    </div>
+
+      <div className="home-visual">
+        <div className="visual-brush" />
+        <img
+          src="https://images.unsplash.com/photo-1484863137850-59afcfe05386?q=80&w=1000&auto=format&fit=crop"
+          alt="athlete"
+        />
+        <div className="hero-stat top">330 Completed Programs</div>
+        <div className="hero-stat bottom">12+ Years of Experience</div>
+      </div>
+    </section>
   );
 }
 

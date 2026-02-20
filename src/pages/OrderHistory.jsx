@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./OrderHistory.css";
 
 export default function OrderHistory() {
   const [orders, setOrders] = useState([]);
@@ -13,7 +14,6 @@ export default function OrderHistory() {
         const data = await res.json();
         setOrders(data);
       } catch (err) {
-        // 🔁 fallback to localStorage
         const localOrders =
           JSON.parse(localStorage.getItem("orders")) || [];
         setOrders(localOrders);
@@ -25,25 +25,19 @@ export default function OrderHistory() {
     fetchOrders();
   }, []);
 
-  if (loading) return <p style={{ textAlign: "center" }}>Loading orders...</p>;
+  if (loading) return <p className="loading-text">Loading orders...</p>;
 
   return (
-    <div style={{ maxWidth: "1000px", margin: "40px auto", padding: "20px" }}>
-      <h1 style={{ marginBottom: "20px" }}>My Orders</h1>
+    <div className="orders-page">
+      <h1 className="orders-title">My Orders</h1>
 
       {orders.length === 0 ? (
-        <p>No orders found.</p>
+        <p className="empty-orders">No orders found.</p>
       ) : (
         orders.map((order) => (
           <div
             key={order._id || order.id}
-            style={{
-              border: "1px solid #e5e7eb",
-              borderRadius: "10px",
-              padding: "20px",
-              marginBottom: "20px",
-              background: "#fff",
-            }}
+            className="order-card"
           >
             <p>
               <b>Order ID:</b> {order._id || order.id}
@@ -58,22 +52,18 @@ export default function OrderHistory() {
             {order.items.map((item, i) => (
               <div
                 key={i}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  fontSize: "14px",
-                }}
+                className="order-item"
               >
                 <span>
-                  {item.name} × {item.qty}
+                  {item.name} x {item.qty}
                 </span>
-                <span>₹{item.price * item.qty}</span>
+                <span>Rs {item.price * item.qty}</span>
               </div>
             ))}
 
             <hr style={{ margin: "10px 0" }} />
 
-            <h3>Total: ₹{order.total}</h3>
+            <h3 className="order-total">Total: Rs {order.total}</h3>
           </div>
         ))
       )}
