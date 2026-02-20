@@ -38,7 +38,8 @@ function Navbar() {
         <NavLink to="/nutrition">Nutrition</NavLink>
         <NavLink to="/ai-trainer">AI Trainer</NavLink>
         <NavLink to="/store">Store</NavLink>
-        <NavLink to="/membership">Membership & Contact</NavLink>
+        <NavLink to="/membership-contact">Membership & Contact</NavLink>
+       
       </div>
 
       {!token ? (

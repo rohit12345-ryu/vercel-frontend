@@ -2,9 +2,8 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "https://vercel-backend-nu-brown.vercel.app",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  withCredentials: true,
 });
+
 
 export default api;

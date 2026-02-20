@@ -13,27 +13,18 @@ function Register() {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-
-  if (password !== confirmPassword) {
-    return setError("Passwords do not match");
-  }
+  if (password !== confirmPassword) return setError("Passwords do not match");
 
   try {
-    const res = await api.post("/api/auth/register", {
-      name,
-      email,
-      password,
-    });
-
-    console.log("REGISTER SUCCESS:", res.data);
-
+    const res = await api.post("/api/auth/register", { name, email, password });
+    console.log(res.data); // check backend response
     navigate("/login");
-
   } catch (err) {
-    console.log("REGISTER ERROR:", err.response);
+    console.log(err.response); // shows backend error
     setError(err.response?.data?.message || "Registration failed");
   }
 };
+
 
 
   return (

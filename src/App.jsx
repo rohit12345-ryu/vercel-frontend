@@ -1,9 +1,7 @@
+import AITrainer from "./pages/Aitrainer";
 import { Routes, Route, Navigate } from "react-router-dom";
-
-
 import { Toaster } from "react-hot-toast"; // ✅ ADD THIS
-
-import Navbar from "..src/components/Navbar";
+import Navbar from "../src/components/Navbar"
 
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
@@ -11,12 +9,11 @@ import Nutrition from "./pages/Nutrition";
 import Store from "./pages/Store";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import MembershipContact from "./pages/MembershipContact";
+import MembershipContact from  "./pages/MembershipContact"; 
 import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
+import Checkout from "../src/pages/checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderHistory from "./pages/OrderHistory";
-import AiTrainer from "./pages/Aitrainer";
 
 
 
@@ -29,7 +26,7 @@ function App() {
 
   return (
     <>
-      
+      <Navbar />
 
       <Toaster position="top-right" />
 
@@ -39,10 +36,7 @@ function App() {
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />} />
         <Route path="/register" element={!isAuthenticated ? <Register /> : <Navigate to="/dashboard" />} />
 
-        {/* Contact & Membership - Merged Page */}
-        <Route path="/membership" element={<MembershipContact />} />
-        <Route path="/contact" element={<MembershipContact />} />
-
+        <Route path="/membership-contact" element={<MembershipContact />} />
         {/* Protected app pages */}
         <Route element={<ProtectedRoute />}>
           <Route path="/programs" element={<Programs />} />
@@ -53,7 +47,7 @@ function App() {
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/orders" element={<OrderHistory />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/ai-trainer" element={<AiTrainer />} />
+          <Route path="/ai-trainer" element={<AITrainer />} />
         </Route>
       </Routes>
     </>
