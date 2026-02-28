@@ -29,7 +29,7 @@ function Navbar() {
             )}
           </div>
         )}
-        <div className="logo">GYM AI</div>
+        <div className="logo">FITPRO </div>
       </div>
 
       <div className="nav-links">
