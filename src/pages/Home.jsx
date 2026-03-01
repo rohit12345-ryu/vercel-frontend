@@ -10,7 +10,7 @@ function Home() {
       <div className="hero-spark hero-spark-right" aria-hidden="true" />
 
       <div className="home-copy">
-        <p className="home-kicker">WELCOME TO GYM AI</p>
+        <p className="home-kicker">WELCOME TO FITPRO</p>
         <h1>
           THE MOST COMPLETE
           <br />

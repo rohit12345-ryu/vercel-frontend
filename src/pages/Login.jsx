@@ -41,7 +41,7 @@ function Login() {
   return (
     <div className="login-page">
       <form className="login-box" onSubmit={handleSubmit}>
-        <h2>Login to GYM AI</h2>
+        <h2>Login to FITPRO</h2>
 
         {error && <p className="login-note" style={{ color: "#ff9aa3" }}>{error}</p>}
 
